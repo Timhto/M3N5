@@ -10,28 +10,17 @@
 * DESENVOLVIMENTO FULL STACK- TURMA 23.3 -9003
 * Disciplina: RPG0018  - Por que não paralelizar.
 * Semestre Letivo: 2023.2
-* Repositorio Git: https://github.com/Gregdev22/Missao-5-Mundo-3-
+* Repositorio Git: https://github.com/Timhto/M3N5.git
 
 <hr>
 
-* [EMERSON GREGORIO ALVES](https://github.com/Gregdev22) - MATRICULA: 2022.0908.4986
+* [EVERTON GOMES](https://github.com/Timhto/M3N5.git) - MATRICULA: 202209113455
 <hr>
  <h1 align="center"> Missão Prática | Nível 5 | Mundo 3 </h1>
  <h2 align="left" > IServidores e clientes baseados em Socket, com uso de Threads tanto no lado cliente quanto no lado servidor, acessando o banco de dados via JPA. </h2> 
  <h3>Procedimento 1: Criando o Servidor e Cliente de Teste </h3>
  <h3>Procedimento 2: Servidor Completo e Cliente Assíncrono </h3>
- <hr>
-
- <h2> :clipboard: Objetivos da Prática </h2>
-
-* Criar servidores Java com base em Sockets.
-* Criar clientes síncronos para servidores com base em Sockets.
-* Criar clientes assíncronos para servidores com base em Sockets.
-* Utilizar Threads para implementação de processos paralelos.
-* No final do exercício, o aluno terá criado um servidor Java baseado em Socket, com acesso ao banco de dados via JPA, além de utilizar os recursos nativos do Java para
-implementação de clientes síncronos e assíncronos. As Threads serão usadas tanto no servidor, para viabilizar múltiplos clientes paralelos, quanto no cliente, para implementar a resposta assíncrona.
-<hr>
-
+ 
 <h2> Códigos </h2>
 
 [Procedimento 1: Criando o Servidor e Cliente de Teste](https://github.com/Gregdev22/Missao-5-Mundo-3-/tree/main/Procedimento%201)
@@ -55,15 +44,10 @@ import java.util.List;
 import java.util.Scanner;
 import model.Produto;
 
-/**
- *
- * @author grego
- */
+
 public class CadastroClient {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args)throws ClassNotFoundException, IOException {
         Socket socket = new Socket("localhost", 4321);
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
@@ -93,10 +77,7 @@ public class CadastroClient {
 * CadastroServer.java
 
 ```java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package cadastroserver;
 import controller.ProdutoJpaController;
 import controller.UsuarioJpaController;
@@ -110,15 +91,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 
-/**
- *
- * @author grego
- */
+
 public class CadastroServer {
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket = new ServerSocket(4321);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CadastroServerPU");
@@ -138,14 +114,8 @@ public class CadastroServer {
         
         }
     } 
-```
-* CadastroThread.java
-  
-```java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package cadastroserver;
 
 import controller.ProdutoJpaController;
@@ -159,10 +129,7 @@ import java.net.Socket;
 import java.util.Scanner;
 import model.Usuario;
 
-/**
- *
- * @author grego
- */
+
 public class CadastroThread extends Thread {
     
     private ProdutoJpaController ctrl;
@@ -240,12 +207,7 @@ public class CadastroThread extends Thread {
 
 [Procedimento 2: Servidor Completo e Cliente Assíncrono](https://github.com/Gregdev22/Missao-5-Mundo-3-/tree/main/Procedimento%202)
 
-* CadastroClientv2.java
-``` java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package cadastroclient;
 
 import java.io.BufferedReader;
@@ -259,10 +221,7 @@ import java.util.List;
 import java.util.Scanner;
 import model.Produto;
 
-/**
- *
- * @author grego
- */
+
 
 
 public class CadastroClientv2 {   
@@ -271,10 +230,7 @@ public class CadastroClientv2 {
     private static ObjectInputStream socketIn;
     private static ThreadClient threadClient;
     
-    
-    /**
-     * @param args the command line arguments
-     */
+ 
     
     
     public static void main(String[] args)throws ClassNotFoundException, IOException {
@@ -356,18 +312,7 @@ public class CadastroClientv2 {
 
 ```
 
-* SaidaFrame 
-``` java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package cadastroclient;
-import javax.swing.*;
-/**
- *
- * @author grego
- */
+
 public class SaidaFrame extends JDialog {
     public JTextArea texto;
 
@@ -384,14 +329,7 @@ public class SaidaFrame extends JDialog {
         add(scroll);
     }
 }
-```
 
-* ThreadClient.java 
-``` java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cadastroclient;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -401,10 +339,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import model.Produto;
 
-/**
- *
- * @author grego
- */
+
 public class ThreadClient extends Thread {
     private ObjectInputStream entrada;
     private JTextArea textArea;
@@ -453,14 +388,7 @@ public class ThreadClient extends Thread {
     }
 }
 
-```
 
-* CadastroServer.java
-``` java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package cadastroserver;
 import controller.MovimentoJpaController;
 import controller.PessoaJpaController;
@@ -476,15 +404,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 
-/**
- *
- * @author grego
- */
-public class CadastroServer {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws IOException{
         ServerSocket serverSocket = new ServerSocket(4321);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CadastroServerPU");
@@ -506,13 +426,7 @@ public class CadastroServer {
         }
     } 
 
-```
-* CadastroThreadv2.java
-``` java
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cadastroserver;
 
 import controller.MovimentoJpaController;
@@ -532,10 +446,7 @@ import model.Movimento;
 import model.Produto;
 import model.Usuario;
 
-/**
- *
- * @author grego
- */
+
 public class CadastroThreadv2 extends Thread {
     
     private ProdutoJpaController ctrl;
@@ -682,18 +593,7 @@ public class CadastroThreadv2 extends Thread {
 
 ```
   <br>
-  <hr>
-<h1>Resultados: </h1>
-:triangular_flag_on_post: Procedimento 1: https://github.com/Gregdev22/Missao-5-Mundo-3-/tree/main/Procedimento%201
-<img src="https://github.com/Gregdev22/Missao-5-Mundo-3-/blob/main/Procedimento%201/Resultados%20missao%205/1%20proc1%20missao%205.png" alt="resultado 1" width="640" height="360">
-<img src="https://github.com/Gregdev22/Missao-5-Mundo-3-/blob/main/Procedimento%201/Resultados%20missao%205/2%20proc%201%20missao%205.png" alt="resultado 2" width="640" height="360">
 
-<br>
-:triangular_flag_on_post: Procedimento 2: (https://github.com/Gregdev22/Missao-5-Mundo-3-/tree/main/Procedimento%202)
-<img src="https://github.com/Gregdev22/Missao-5-Mundo-3-/blob/main/Procedimento%202/Resultados%20missao%205/2%20proc%202%20missao%205.png" alt="resultado 1" width="640" height="360">
-<img src="https://github.com/Gregdev22/Missao-5-Mundo-3-/blob/main/Procedimento%202/Resultados%20missao%205/3%20proc%202%20missao%205.png" alt="resultado 2" width="640" height="640">
-
-<hr>
 
 <h1>Análise e Conclusão</h1>
 <ul>
